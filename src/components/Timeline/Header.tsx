@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import Fade from 'react-reveal/Fade';
-import styles from './styles.module.scss';
+import React, { FC } from "react";
+import Fade from "react-reveal/Fade";
+import styles from "./styles.module.scss";
 
 const TimelineHeader: FC = (props) => {
   const { children } = props;

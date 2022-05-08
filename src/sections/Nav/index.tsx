@@ -1,10 +1,9 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-console */
-import React, { FC, useState } from 'react';
-import classNames from 'classnames';
-import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
-import styles from './styles.module.scss';
-import { navItems } from './constants';
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import React, { FC, useState } from "react";
+import classNames from "classnames";
+import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
+import styles from "./styles.module.scss";
+import { navItems } from "./constants";
 
 export interface NavItem {
   text: string;
@@ -12,40 +11,46 @@ export interface NavItem {
 }
 
 const Nav: FC = () => {
-  const [activeItem, setActiveItem] = useState<string>('#home');
-  const [flag, setFlag] = useState<boolean>(true);
+  const [activeItem, setActiveItem] = useState<string>("#home");
+  const [flag, setFlag] = useState<string>("");
   const [verticalVisible, setVerticalVisible] = useState<boolean>(false);
 
   const scroll = (toEl: string) => {
-    setFlag(false);
     const $toEl = document.querySelector(toEl);
     if ($toEl) {
       setActiveItem(toEl);
-      $toEl.scrollIntoView({ behavior: 'smooth' });
+      setFlag(toEl);
+      $toEl.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
     }
   };
 
   React.useEffect(() => {
-    const listenScrollsetActiveItem: ()=>void = () => {
-      if (!flag) return;
-      document.removeEventListener('scroll', listenScrollsetActiveItem);
-      document.addEventListener('scroll', () => {
-        const navs = document.querySelectorAll('#navEl');
-        navs.forEach((nav) => {
-          const $nav = nav as HTMLElement;
-          const $toEl = document.querySelector($nav.dataset.toel!);
-          if ($toEl) {
-            const rect = $toEl.getBoundingClientRect();
-            if (rect.top <= 10 && rect.bottom >= 0 && $nav.dataset.toel !== activeItem) {
-              setActiveItem($nav.dataset.toel!);
-            }
+    const listenScrollsetActiveItemEvent = () => {
+      const navs = document.querySelectorAll("#navEl");
+      navs.forEach((nav) => {
+        const $nav = nav as HTMLElement;
+        const $toEl = document.querySelector($nav.dataset.toel!);
+        if ($toEl) {
+          const rect = $toEl.getBoundingClientRect();
+          if ($nav.dataset.toel === flag && rect.top <= 0 && rect.bottom >= 0) {
+            setActiveItem($nav.dataset.toel!);
+            setFlag($nav.dataset.toel!);
           }
-        });
-      },
-      { passive: true });
+        }
+      });
+    };
+    const listenScrollsetActiveItem: () => void = () => {
+      document.removeEventListener("scroll", listenScrollsetActiveItemEvent);
+      document.addEventListener("scroll", listenScrollsetActiveItemEvent, {
+        passive: true,
+      });
     };
     listenScrollsetActiveItem();
-  }, [activeItem]);
+  }, [activeItem, flag]);
 
   return (
     <nav className={styles.nav}>
@@ -68,8 +73,11 @@ const Nav: FC = () => {
         ))}
 
         {/* 缩小版菜单栏 */}
-        <li className={styles.navBtn} onClick={() => setVerticalVisible(!verticalVisible)}>
-          {verticalVisible ? <CloseOutlined /> : <MenuOutlined /> }
+        <li
+          className={styles.navBtn}
+          onClick={() => setVerticalVisible(!verticalVisible)}
+        >
+          {verticalVisible ? <CloseOutlined /> : <MenuOutlined />}
         </li>
       </ul>
 
@@ -79,7 +87,9 @@ const Nav: FC = () => {
           {navItems.map((nav) => (
             <li
               key={nav.toEl}
-              className={classNames({ [styles.active]: nav.toEl === activeItem })}
+              className={classNames({
+                [styles.active]: nav.toEl === activeItem,
+              })}
               onClick={() => {
                 setVerticalVisible(false);
                 scroll(nav.toEl);
