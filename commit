@@ -1,5 +1,4 @@
 #!/bin/bash
-## Todo: 添加log功能
 sign=true
 message="some changes"
 for i in $*
@@ -9,6 +8,22 @@ do
   then
     sign=false
   fi
+
+  if [ $i = "-h" ]
+  then
+    echo "Usage: commit [-ns] [-m <message>]"
+  fi
+
+  if [ $i = "-v" ]
+  then
+    echo "Version: 0.1"
+  fi
+
+  if [ $i = "-a" ]
+  then
+    echo "Author: ZhouHaoyu"
+  fi
+
   if [ $i = "-m" ]
   then
     _index=`expr $index + 1`
@@ -19,6 +34,7 @@ done
 git add .
 if [ $sign = true ]
 then
+  echo "your commit will be signed"
   git commit -s -m "$message"
 else
   git commit -m "$message"
