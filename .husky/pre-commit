@@ -1,2 +1,4 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+echo "Running pre-commit hook"
+echo "checking for changes"
+echo "end of pre-commit hook"
