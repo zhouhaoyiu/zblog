@@ -4,7 +4,6 @@ module.exports = {
     "stylelint-config-standard",
     "stylelint-config-prettier"
   ],
-  "customSyntax": "postcss-scss",
   "rules": {
     "prettier/prettier": true,
     "selector-class-pattern": null,

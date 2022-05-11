@@ -36,7 +36,7 @@ const Nav: FC = () => {
         const $toEl = document.querySelector($nav.dataset.toel!);
         if ($toEl) {
           const rect = $toEl.getBoundingClientRect();
-          if ($nav.dataset.toel === flag && rect.top <= 0 && rect.bottom >= 0) {
+          if ($nav.dataset.toel && rect.top <= 0 && rect.bottom >= 0) {
             setActiveItem($nav.dataset.toel!);
             setFlag($nav.dataset.toel!);
           }
