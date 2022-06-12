@@ -1,0 +1,4 @@
+*.tsx linguist-language=React
+*.jsx linguist-language=React
+*.ts linguist-language=React
+
