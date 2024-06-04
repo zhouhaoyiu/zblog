@@ -37,8 +37,8 @@ const Nav: FC = () => {
         if ($toEl) {
           const rect = $toEl.getBoundingClientRect();
           if ($nav.dataset.toel && rect.top <= 0 && rect.bottom >= 0) {
-            setActiveItem($nav.dataset.toel!);
-            setFlag($nav.dataset.toel!);
+            setActiveItem($nav.dataset.toel);
+            setFlag($nav.dataset.toel);
           }
         }
       });
@@ -55,7 +55,7 @@ const Nav: FC = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.title}>
-        <span>云香绕雪</span>
+        <span>周浩宇</span>
       </div>
 
       {/* 横版 nav */}

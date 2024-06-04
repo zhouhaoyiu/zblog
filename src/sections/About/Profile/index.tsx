@@ -22,10 +22,10 @@ const Profile = () => {
         className={styles.details}
       >
         <Fade bottom>
-          <Paragraph>
+          {/* <Paragraph>
             <HighLight>抄表员</HighLight> ，山西太原 👴，现在在{" "}
             <HighLight>太原供水</HighLight> 搬砖。
-          </Paragraph>
+          </Paragraph> */}
           <Paragraph>
             <HighLight>防灾科技学院 本科毕业</HighLight>
           </Paragraph>

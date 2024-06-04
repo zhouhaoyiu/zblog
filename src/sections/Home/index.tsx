@@ -25,9 +25,9 @@ const Home: FC = () => {
       <Row className={styles.content}>
         <Col span={24} md={15} className={styles.intro}>
           <p>我是周浩宇，</p>
-          <p>
+          {/* <p>
             也是 <i className={styles.tencent}>太原供水集团</i> 抄表员{" "}
-          </p>
+          </p> */}
           <p>喜欢前端</p>
           <p>
             偶尔
