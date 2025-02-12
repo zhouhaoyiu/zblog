@@ -37,6 +37,14 @@ const Contact = () => (
         >
           knight9z@vip.qq.com
         </Button>
+        <br />
+        <Button
+          onClick={() => (window.location.href = emailStr)}
+          className={styles.emailBtn}
+          bg="#7d0000"
+        >
+          648921469@qq.com
+        </Button>
       </div>
     </Fade>
   </Section>

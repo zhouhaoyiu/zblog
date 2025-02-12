@@ -22,12 +22,8 @@ const Profile = () => {
         className={styles.details}
       >
         <Fade bottom>
-          {/* <Paragraph>
-            <HighLight>抄表员</HighLight> ，山西太原 👴，现在在{" "}
-            <HighLight>太原供水</HighLight> 搬砖。
-          </Paragraph> */}
           <Paragraph>
-            <HighLight>防灾科技学院 本科毕业</HighLight>
+            <HighLight>北京科技大学 本科毕业</HighLight>
           </Paragraph>
         </Fade>
 
@@ -44,11 +40,6 @@ const Profile = () => {
           <img src={avatar} alt="头像" />
         </Fade>
       </Col>
-
-      {/* <Col lg={{ span: 5, order: 3 }} span={24} order={2} className={styles.name}>
-        <p><i>测</i></p>
-        <p><i>试</i></p>
-      </Col> */}
     </Row>
   );
 };

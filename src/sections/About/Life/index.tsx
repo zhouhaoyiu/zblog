@@ -10,6 +10,8 @@ const Life = () => (
     <TimelineItem direction="right" time="6月" header="👶🏻 河北省石家庄市" />
     <TimelineHeader>2012</TimelineHeader>
     <TimelineItem direction="right" time="9月" header="太原市第36中学" />
+    <TimelineHeader>2015</TimelineHeader>
+    <TimelineItem direction="right" time="9月" header="太原市第48中学" />
     <TimelineHeader>...</TimelineHeader>
     <TimelineItem header="🙇‍♂️ 好好学习..." />
     <TimelineHeader>2022</TimelineHeader>
@@ -19,9 +21,9 @@ const Life = () => (
       header={["🎓 本科毕业 🎉"]}
       // node={<span className={styles.customNode}><img width={46} src={neu} alt="uci" /></span>}
       content={[
-        "河北，廊坊",
+        "北京",
         <span>
-          <HighLight>防灾科技学院</HighLight>{" "}
+          <HighLight>北京科技大学</HighLight>{" "}
           <HighLight> 计算机科学与技术专业</HighLight>
         </span>,
         "写JavaScript C++ Java Python Shell Rust Scala Mathematica ...",
