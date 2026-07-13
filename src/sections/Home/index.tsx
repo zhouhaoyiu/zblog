@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Col, Row } from "antd";
-import Fade from "react-reveal/Fade";
+import Fade from "../../components/Fade";
 import styles from "./styles.module.scss";
 import useTyped from "../../hooks/useTyped";
 import useLottie from "../../hooks/useLottie";

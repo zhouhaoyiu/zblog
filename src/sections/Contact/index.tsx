@@ -1,5 +1,5 @@
 import React from "react";
-import Fade from "react-reveal/Fade";
+import Fade from "../../components/Fade";
 import Section from "../../components/Section";
 import Button from "../../components/Button";
 import Title from "../../components/Title";

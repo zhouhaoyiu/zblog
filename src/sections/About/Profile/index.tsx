@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "antd";
-import Fade from "react-reveal/Fade";
+import Fade from "../../../components/Fade";
 import styles from "./styles.module.scss";
 import avatar from "../../../assets/images/avatar.webp";
 import Paragraph from "../../../components/Paragraph";

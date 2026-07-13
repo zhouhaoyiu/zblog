@@ -1,5 +1,5 @@
 import React, { FC, ReactChild, useMemo } from "react";
-import Fade from "react-reveal/Fade";
+import Fade from "../Fade";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 import Paragraph from "../Paragraph";
